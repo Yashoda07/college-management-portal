@@ -1,0 +1,120 @@
+﻿@page
+@model IndexModel
+
+@{
+    ViewData["Title"] = "Student Performance Portal";
+}
+
+<div class="hero-section">
+    <div class="container py-5">
+        <div class="row align-items-center min-vh-75">
+            <div class="col-lg-7">
+                <span class="badge bg-primary mb-3 px-3 py-2">
+                    Academic Management System
+                </span>
+
+                <h1 class="display-3 fw-bold mb-4">
+                    Student Performance
+                    <span class="text-primary">Portal</span>
+                </h1>
+
+                <p class="lead text-secondary mb-4">
+                    A centralized platform to manage students, courses,
+                    faculty, marks and attendance — all in one place.
+                </p>
+
+                <div class="d-flex gap-3">
+                    <a href="/Dashboard" class="btn btn-primary btn-lg px-4">
+                        View Dashboard
+                    </a>
+
+                    <a href="/Students" class="btn btn-outline-dark btn-lg px-4">
+                        Manage Students
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-5 mt-5 mt-lg-0">
+                <div class="portal-card shadow-lg">
+                    <div class="card-body p-4">
+                        <h4 class="fw-bold mb-4">Portal Overview</h4>
+
+                        <div class="stat-row">
+                            <div>
+                                <small class="text-secondary">Students</small>
+                                <h3 class="fw-bold mb-0">@Model.TotalStudents</h3>
+                            </div>
+                            <div class="icon-box">S</div>
+                        </div>
+
+                        <hr />
+
+                        <div class="stat-row">
+                            <div>
+                                <small class="text-secondary">Courses</small>
+                                <h3 class="fw-bold mb-0">@Model.TotalCourses</h3>
+                            </div>
+                            <div class="icon-box">C</div>
+                        </div>
+
+                        <hr />
+
+                        <div class="stat-row">
+                            <div>
+                                <small class="text-secondary">Departments</small>
+                                <h3 class="fw-bold mb-0">@Model.TotalDepartments</h3>
+                            </div>
+                            <div class="icon-box">D</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h2 class="fw-bold">Everything You Need</h2>
+        <p class="text-secondary">
+            Manage academic information efficiently through a single platform.
+        </p>
+    </div>
+
+    <div class="row g-4">
+
+        <div class="col-md-4">
+            <div class="feature-card h-100">
+                <div class="feature-icon">S</div>
+                <h4>Student Management</h4>
+                <p class="text-secondary">
+                    Maintain student profiles, departments, admissions
+                    and academic records.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="feature-card h-100">
+                <div class="feature-icon">A</div>
+                <h4>Performance Analytics</h4>
+                <p class="text-secondary">
+                    Analyse marks, attendance and academic performance
+                    using meaningful insights.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="feature-card h-100">
+                <div class="feature-icon">C</div>
+                <h4>Academic Management</h4>
+                <p class="text-secondary">
+                    Organize courses, faculty, enrollments and
+                    academic activities.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,154 @@
+﻿@page
+@model DashboardModel
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="container-fluid py-4">
+
+    <div class="mb-4">
+        <h1 class="fw-bold">Academic Dashboard</h1>
+        <p class="text-secondary">
+            Overview of student and academic performance.
+        </p>
+    </div>
+
+    <!-- KPI Cards -->
+    <div class="row g-4 mb-4">
+
+        <div class="col-md-4">
+            <div class="dashboard-card">
+                <div class="text-secondary">Total Students</div>
+                <h2 class="fw-bold">@Model.TotalStudents</h2>
+                <div class="small">Enrolled students</div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="dashboard-card">
+                <div class="text-secondary">Faculty</div>
+                <h2 class="fw-bold">@Model.TotalFaculty</h2>
+                <div class="small">Teaching staff</div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="dashboard-card">
+                <div class="text-secondary">Courses</div>
+                <h2 class="fw-bold">@Model.TotalCourses</h2>
+                <div class="small">Active courses</div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="dashboard-card">
+                <div class="text-secondary">Departments</div>
+                <h2 class="fw-bold">@Model.TotalDepartments</h2>
+                <div class="small">Academic departments</div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="dashboard-card">
+                <div class="text-secondary">At-Risk Students</div>
+
+                <h2 class="fw-bold text-danger">
+                    @Model.AtRiskStudents
+                </h2>
+
+                <div class="small">
+                    Attendance below 75%
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Performance -->
+    <div class="row g-4">
+
+        <div class="col-md-6">
+            <div class="dashboard-card">
+                <h5 class="fw-bold">Average Academic Performance</h5>
+
+                <div class="display-4 fw-bold text-primary mt-3">
+                    @Model.AverageMarks%
+                </div>
+
+                <p class="text-secondary">
+                    Average marks across all recorded examinations.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="dashboard-card">
+                <h5 class="fw-bold">Overall Attendance</h5>
+
+                <div class="display-4 fw-bold text-primary mt-3">
+                    @Model.AttendancePercentage%
+                </div>
+
+                <p class="text-secondary">
+                    Overall student attendance percentage.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="dashboard-card mt-4">
+
+        <h5 class="fw-bold mb-3">Quick Actions</h5>
+
+        <div class="row g-3">
+
+            <div class="col-md-4">
+                <a href="/Students"
+                   class="btn btn-primary w-100 py-2">
+                    Manage Students
+                </a>
+            </div>
+
+            <div class="col-md-4">
+                <a href="/Courses"
+                   class="btn btn-outline-primary w-100 py-2">
+                    View Courses
+                </a>
+            </div>
+
+            <div class="col-md-4">
+                <a href="/Faculty"
+                   class="btn btn-outline-primary w-100 py-2">
+                    View Faculty
+                </a>
+            </div>
+
+            <div class="col-md-4">
+                <a href="/Marks"
+                   class="btn btn-outline-primary w-100 py-2">
+                    View Marks
+                </a>
+            </div>
+
+            <div class="col-md-4">
+                <a href="/Attendance"
+                   class="btn btn-outline-primary w-100 py-2">
+                    View Attendance
+                </a>
+            </div>
+
+            <div class="col-md-4">
+                <a href="/Students/Create"
+                   class="btn btn-success w-100 py-2">
+                    + Add New Student
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

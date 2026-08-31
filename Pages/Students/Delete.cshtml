@@ -1,0 +1,74 @@
+﻿@page
+@model StudentPerformancePortal.Pages.Students.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete Student";
+}
+
+<div class="container py-5">
+
+    <div class="mb-4">
+        <a href="/Students" class="text-decoration-none">
+            ← Back to Students
+        </a>
+
+        <h1 class="fw-bold mt-3">Delete Student</h1>
+
+        <p class="text-secondary">
+            Please confirm that you want to delete this student record.
+        </p>
+    </div>
+
+    <div class="dashboard-card">
+
+        <div class="alert alert-warning">
+            <strong>Warning:</strong>
+            This action cannot be undone.
+        </div>
+
+        <div class="row g-3 mb-4">
+
+            <div class="col-md-6">
+                <strong>Student Number</strong>
+                <div>@Model.Student.StudentNumber</div>
+            </div>
+
+            <div class="col-md-6">
+                <strong>Name</strong>
+                <div>
+                    @Model.Student.FirstName @Model.Student.LastName
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <strong>Email</strong>
+                <div>@Model.Student.Email</div>
+            </div>
+
+            <div class="col-md-6">
+                <strong>Department</strong>
+                <div>@Model.Student.Department?.DepartmentName</div>
+            </div>
+
+        </div>
+
+        <form method="post">
+
+            <input type="hidden"
+                   asp-for="Student.StudentId" />
+
+            <button type="submit"
+                    class="btn btn-danger">
+                Yes, Delete Student
+            </button>
+
+            <a href="/Students"
+               class="btn btn-outline-secondary ms-2">
+                Cancel
+            </a>
+
+        </form>
+
+    </div>
+
+</div>

@@ -1,0 +1,92 @@
+﻿@page
+@model StudentPerformancePortal.Pages.Attendance.IndexModel
+
+@{
+    ViewData["Title"] = "Attendance";
+}
+
+<div class="container py-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h1 class="fw-bold">Attendance</h1>
+            <p class="text-secondary mb-0">
+                Monitor student attendance across courses.
+            </p>
+        </div>
+
+        <a href="/Dashboard" class="btn btn-outline-primary">
+            ← Dashboard
+        </a>
+    </div>
+
+    <div class="dashboard-card">
+
+        <div class="table-responsive">
+
+            <table class="table table-hover align-middle">
+
+                <thead>
+                    <tr>
+                        <th>Student</th>
+                        <th>Course</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @foreach (var attendance in Model.AttendanceRecords)
+                    {
+                        <tr>
+                            <td>
+                                <span class="fw-semibold">
+                                    @attendance.Student?.FirstName
+                                    @attendance.Student?.LastName
+                                </span>
+                            </td>
+
+                            <td>
+                                @attendance.Course?.CourseName
+                            </td>
+
+                            <td>
+                                @attendance.AttendanceDate.ToString("dd MMM yyyy")
+                            </td>
+
+                            <td>
+                                @if (attendance.Status == "Present")
+                                {
+                                    <span class="badge bg-success">
+                                        Present
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-danger">
+                                        Absent
+                                    </span>
+                                }
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        @if (!Model.AttendanceRecords.Any())
+        {
+            <div class="text-center py-5">
+                <p class="text-secondary mb-0">
+                    No attendance records found.
+                </p>
+            </div>
+        }
+
+    </div>
+
+</div>

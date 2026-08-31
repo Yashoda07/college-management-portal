@@ -1,0 +1,80 @@
+﻿@page
+@model StudentPerformancePortal.Pages.Faculty.IndexModel
+
+@{
+    ViewData["Title"] = "Faculty";
+}
+
+<div class="container py-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h1 class="fw-bold">Faculty</h1>
+            <p class="text-secondary mb-0">
+                View faculty members and their departments.
+            </p>
+        </div>
+
+        <a href="/Dashboard" class="btn btn-outline-primary">
+            ← Dashboard
+        </a>
+    </div>
+
+    <div class="dashboard-card">
+
+        <div class="table-responsive">
+
+            <table class="table table-hover align-middle">
+
+                <thead>
+                    <tr>
+                        <th>Faculty ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Department</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @foreach (var faculty in Model.Faculty)
+                    {
+                        <tr>
+                            <td>
+                                <span class="fw-semibold">
+                                    @faculty.FacultyId
+                                </span>
+                            </td>
+
+                            <td>
+                                @faculty.FacultyName
+                            </td>
+
+                            <td>
+                                @faculty.Email
+                            </td>
+
+                            <td>
+                                @faculty.Department?.DepartmentName
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        @if (!Model.Faculty.Any())
+        {
+            <div class="text-center py-5">
+                <p class="text-secondary mb-0">
+                    No faculty records found.
+                </p>
+            </div>
+        }
+
+    </div>
+
+</div>

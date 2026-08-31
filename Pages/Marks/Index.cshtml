@@ -1,0 +1,94 @@
+﻿@page
+@model StudentPerformancePortal.Pages.Marks.IndexModel
+
+@{
+    ViewData["Title"] = "Marks";
+}
+
+<div class="container py-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h1 class="fw-bold">Student Performance</h1>
+            <p class="text-secondary mb-0">
+                View examination marks and academic performance.
+            </p>
+        </div>
+
+        <a href="/Dashboard" class="btn btn-outline-primary">
+            ← Dashboard
+        </a>
+    </div>
+
+    <div class="dashboard-card">
+
+        <div class="table-responsive">
+
+            <table class="table table-hover align-middle">
+
+                <thead>
+                    <tr>
+                        <th>Student</th>
+                        <th>Course</th>
+                        <th>Marks</th>
+                        <th>Percentage</th>
+                        <th>Exam Type</th>
+                        <th>Exam Date</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @foreach (var mark in Model.Marks)
+                    {
+                        var percentage = mark.MaximumMarks > 0
+                            ? (mark.MarksObtained * 100m / mark.MaximumMarks)
+                            : 0;
+
+                        <tr>
+                            <td>
+                                <span class="fw-semibold">
+                                    @mark.Student?.FirstName @mark.Student?.LastName
+                                </span>
+                            </td>
+
+                            <td>
+                                @mark.Course?.CourseName
+                            </td>
+
+                            <td>
+                                @mark.MarksObtained / @mark.MaximumMarks
+                            </td>
+
+                            <td>
+                                @percentage.ToString("0.0")%
+                            </td>
+
+                            <td>
+                                @mark.ExamType
+                            </td>
+
+                            <td>
+                                @mark.ExamDate.ToString("dd MMM yyyy")
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        @if (!Model.Marks.Any())
+        {
+            <div class="text-center py-5">
+                <p class="text-secondary mb-0">
+                    No marks records found.
+                </p>
+            </div>
+        }
+
+    </div>
+
+</div>

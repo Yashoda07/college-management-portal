@@ -1,0 +1,191 @@
+﻿@page
+@model StudentPerformancePortal.Pages.Students.CreateModel
+
+@{
+    ViewData["Title"] = "Add Student";
+}
+
+<div class="container py-5">
+
+    <div class="mb-4">
+        <a href="/Students" class="text-decoration-none">
+            ← Back to Students
+        </a>
+
+        <h1 class="fw-bold mt-3">Add New Student</h1>
+
+        <p class="text-secondary">
+            Enter the student's academic and personal information.
+        </p>
+    </div>
+
+    <div class="dashboard-card">
+
+        <form method="post">
+
+            <div asp-validation-summary="ModelOnly"
+                 class="text-danger mb-3">
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-md-6">
+                    <label asp-for="Student.StudentNumber"
+                           class="form-label">
+                        Student Number
+                    </label>
+
+                    <input asp-for="Student.StudentNumber"
+                           class="form-control"
+                           placeholder="e.g. STU006" />
+
+                    <span asp-validation-for="Student.StudentNumber"
+                          class="text-danger">
+                    </span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="Student.Email"
+                           class="form-label">
+                        Email
+                    </label>
+
+                    <input asp-for="Student.Email"
+                           class="form-control"
+                           type="email"
+                           placeholder="student@college.com" />
+
+                    <span asp-validation-for="Student.Email"
+                          class="text-danger">
+                    </span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="Student.FirstName"
+                           class="form-label">
+                        First Name
+                    </label>
+
+                    <input asp-for="Student.FirstName"
+                           class="form-control" />
+
+                    <span asp-validation-for="Student.FirstName"
+                          class="text-danger">
+                    </span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="Student.LastName"
+                           class="form-label">
+                        Last Name
+                    </label>
+
+                    <input asp-for="Student.LastName"
+                           class="form-control" />
+
+                    <span asp-validation-for="Student.LastName"
+                          class="text-danger">
+                    </span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="Student.Phone"
+                           class="form-label">
+                        Phone
+                    </label>
+
+                    <input asp-for="Student.Phone"
+                           class="form-control" />
+
+                    <span asp-validation-for="Student.Phone"
+                          class="text-danger">
+                    </span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="Student.DateOfBirth"
+                           class="form-label">
+                        Date of Birth
+                    </label>
+
+                    <input asp-for="Student.DateOfBirth"
+                           class="form-control"
+                           type="date" />
+
+                    <span asp-validation-for="Student.DateOfBirth"
+                          class="text-danger">
+                    </span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="Student.Gender"
+                           class="form-label">
+                        Gender
+                    </label>
+
+                    <select asp-for="Student.Gender"
+                            class="form-select">
+                        <option value="">Select Gender</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="Student.AdmissionYear"
+                           class="form-label">
+                        Admission Year
+                    </label>
+
+                    <input asp-for="Student.AdmissionYear"
+                           class="form-control"
+                           type="number"
+                           value="2026" />
+
+                    <span asp-validation-for="Student.AdmissionYear"
+                          class="text-danger">
+                    </span>
+                </div>
+
+                <div class="col-md-12">
+                    <label asp-for="Student.DepartmentId"
+                           class="form-label">
+                        Department
+                    </label>
+
+                    <select asp-for="Student.DepartmentId"
+                            asp-items="Model.Departments"
+                            class="form-select">
+                        <option value="">Select Department</option>
+                    </select>
+
+                    <span asp-validation-for="Student.DepartmentId"
+                          class="text-danger">
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="mt-4 d-flex gap-2">
+
+                <button type="submit"
+                        class="btn btn-primary px-4">
+                    Add Student
+                </button>
+
+                <a href="/Students"
+                   class="btn btn-outline-secondary">
+                    Cancel
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
